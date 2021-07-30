@@ -11,13 +11,13 @@ export default function MyProducts() {
   
   const call1 = async () => {
     if (products.length === 0) {
-      let response = await Axios.get("/getproducts");
+      let response = await Axios.get("https://untrsh.herokuapp.com/getproducts");
 
       setproducts(response.data.result);
     }
   };
   const call = async () => {
-    let response = await Axios.get("/getStatus");
+    let response = await Axios.get("https://untrsh.herokuapp.com/getStatus");
 
     setprod(response.data.result);
   };

@@ -19,7 +19,9 @@ export default function SingleProd(props) {
   const onDelete = async () => {
     try {
       setloading(true);
-      await Axios.delete(`/deleteprod/${props.prod_id}`);
+      await Axios.delete(
+        `https://untrsh.herokuapp.com/deleteprod/${props.prod_id}`
+      );
       await props.fun();
       setloading(false);
     } catch (err) {

@@ -22,7 +22,9 @@ export default function AddProduct(props) {
       setdata(props.location.data);
     }
     const res = async () => {
-      const response = await axios.get("/getsubcat");
+      const response = await axios.get(
+        "https://untrsh.herokuapp.com/getsubcat"
+      );
 
       setallsubcat(response.data.result);
 
@@ -42,7 +44,7 @@ export default function AddProduct(props) {
 
       // alert(JSON.stringify(values, null, 2));
       if (!data.edit) {
-        await axios.post("/addprod", fdata, {
+        await axios.post("https://untrsh.herokuapp.com/addprod", fdata, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

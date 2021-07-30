@@ -8,7 +8,7 @@ export default function MyProducts() {
   const { products, setproducts } = useContext(ProdCtx);
   const { state } = useContext(AuthContext);
   const fun = async () => {
-    let response = await Axios.get("/getproducts");
+    let response = await Axios.get("https://untrsh.herokuapp.com/getproducts");
 
     setproducts(response.data.result);
   };

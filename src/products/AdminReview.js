@@ -23,22 +23,27 @@ export default function AdminReview(props) {
   const { products, setproducts } = useContext(ProdCtx);
   const call = async () => {
     if (products.length === 0) {
-      let response = await Axios.get("/getproducts");
+      let response = await Axios.get(
+        "https://untrsh.herokuapp.com/getproducts"
+      );
 
       setproducts(response.data.result);
     }
   };
   const calltwo = async () => {
-    let response = await Axios.post("/getalreadydeal", {
-      prod_id: product[0].prod_id,
-    });
+    let response = await Axios.post(
+      "https://untrsh.herokuapp.com/getalreadydeal",
+      {
+        prod_id: product[0].prod_id,
+      }
+    );
 
     if (response.data.result.length > 0) {
       setcontacted(true);
     }
   };
   const callthree = async () => {
-    let response = await Axios.get("/getDeal");
+    let response = await Axios.get("https://untrsh.herokuapp.com/getDeal");
     console.log(1111111111);
     console.log(response);
 
@@ -74,7 +79,7 @@ export default function AdminReview(props) {
 
       try {
         setloading(true);
-        await Axios.post("/approveDeal", {
+        await Axios.post("https://untrsh.herokuapp.com/approveDeal", {
           approved: approved,
           email: email,
           buyer_id: id,
@@ -140,7 +145,7 @@ export default function AdminReview(props) {
     try {
       setloading(true);
 
-      await Axios.post("/setStatus", data, {
+      await Axios.post("https://untrsh.herokuapp.com/setStatus", data, {
         headers: {
           "Content-Type": "application/json",
         },

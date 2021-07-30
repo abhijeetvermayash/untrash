@@ -18,7 +18,9 @@ export default function ProdDiscription(props) {
   const { products, setproducts } = useContext(ProdCtx);
   const call = async () => {
     if (products.length === 0) {
-      let response = await Axios.get("/getproducts");
+      let response = await Axios.get(
+        "https://untrsh.herokuapp.com/getproducts"
+      );
 
       setproducts(response.data.result);
     }
@@ -33,7 +35,7 @@ export default function ProdDiscription(props) {
     }
   };
   const callthree = async () => {
-    let response = await Axios.get("/getDeal");
+    let response = await Axios.get("https://untrsh.herokuapp.com/getDeal");
     console.log(1111111111);
     console.log(response);
 
@@ -69,7 +71,7 @@ export default function ProdDiscription(props) {
 
       try {
         setloading(true);
-        await Axios.post("/newapprovedeals", {
+        await Axios.post("https://untrsh.herokuapp.com/newapprovedeals", {
           approved: approved,
           email: email,
           buyer_id: id,
@@ -263,9 +265,12 @@ export default function ProdDiscription(props) {
                 e.preventDefault();
                 setcl(true);
                 if (state.user != null) {
-                  await Axios.post("/usr/makeDeal", {
-                    prod_id: product[0].prod_id,
-                  });
+                  await Axios.post(
+                    "https://untrsh.herokuapp.com/usr/makeDeal",
+                    {
+                      prod_id: product[0].prod_id,
+                    }
+                  );
                 } else {
                   alert("Login First To Contact Seller");
                   window.location.replace("/collection");

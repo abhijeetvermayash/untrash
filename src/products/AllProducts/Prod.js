@@ -11,7 +11,9 @@ export default function Prod(props) {
 
   const call = async () => {
     if (products.length === 0) {
-      let response = await Axios.get("/getproducts");
+      let response = await Axios.get(
+        "https://untrsh.herokuapp.com/getproducts"
+      );
 
       setproducts(response.data.result);
     }
@@ -19,7 +21,9 @@ export default function Prod(props) {
   useEffect(() => {
     call();
     const res = async () => {
-      const response = await Axios.get("/getsubcat");
+      const response = await Axios.get(
+        "https://untrsh.herokuapp.com/getsubcat"
+      );
 
       setallsubcat(response.data.result);
 
