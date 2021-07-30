@@ -52,7 +52,7 @@ export default function AddProduct(props) {
       } else {
         fdata.append("prod_id", data.prod_id);
         console.log(fdata);
-        await axios.put("/updateprod", fdata, {
+        await axios.put("https://untrsh.herokuapp.com/updateprod", fdata, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

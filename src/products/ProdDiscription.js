@@ -26,9 +26,12 @@ export default function ProdDiscription(props) {
     }
   };
   const calltwo = async () => {
-    let response = await Axios.post("/getalreadydeal", {
-      prod_id: product[0].prod_id,
-    });
+    let response = await Axios.post(
+      "https://untrsh.herokuapp.com/getalreadydeal",
+      {
+        prod_id: product[0].prod_id,
+      }
+    );
 
     if (response.data.result.length > 0) {
       setcontacted(true);
