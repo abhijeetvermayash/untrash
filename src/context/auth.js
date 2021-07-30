@@ -58,7 +58,7 @@ const Auth = (props) => {
       setHeader(localStorage.token);
     }
     try {
-      const result = await axios.get("/getUser");
+      const result = await axios.get("https://untrsh.herokuapp.com/getUser");
       console.log(result);
       dispatch({
         type: "User_Loaded",
