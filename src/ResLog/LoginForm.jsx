@@ -124,7 +124,7 @@ export default function LoginForm() {
                 <br/>
                 <ul class="list-login-bottom">
                   <li class="">
-                    <Link to="/register" class="">
+                    <Link to="/signup" class="">
                       Don't have an Account?
                     </Link>
                   </li>

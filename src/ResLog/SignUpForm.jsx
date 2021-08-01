@@ -56,9 +56,9 @@ export default function SignUpForm() {
       if (!values.contact_no) {
         errors.contact_no = "* Phone Required";
       }
-      if (!values.photo) {
-        errors.photo = "* Profile Photo Required";
-      }
+      // if (!values.photo) {
+      //   errors.photo = "* Profile Photo Required";
+      // }
       return errors;
     },
   });
