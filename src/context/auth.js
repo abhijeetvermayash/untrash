@@ -136,7 +136,7 @@ const Auth = (props) => {
       });
 
       loadUser();
-      window.location.replace("/login");
+      window.location.replace("/");
     } catch (error) {
       console.log(error);
       dispatch({

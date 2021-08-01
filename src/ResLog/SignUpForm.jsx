@@ -6,6 +6,8 @@ import "../assets/css/font-awesome.css";
 import "../assets/css/style.css";
 import { SpinnerCircular } from "spinners-react";
 import Background from '../assets/images/bg2.png'
+import history from "../history";
+
 
 export default function SignUpForm() {
   const { state, SignUp } = useContext(AuthContext);
@@ -16,6 +18,8 @@ export default function SignUpForm() {
       if (key !== "photo") data.append(key, value);
     }
     SignUp(data);
+    history.push('/');
+    
   };
   const formik = useFormik({
     initialValues: {
@@ -56,9 +60,9 @@ export default function SignUpForm() {
       if (!values.contact_no) {
         errors.contact_no = "* Phone Required";
       }
-      // if (!values.photo) {
-      //   errors.photo = "* Profile Photo Required";
-      // }
+      if (!values.photo) {
+        errors.photo = "* Profile Photo Required";
+      }
       return errors;
     },
   });
@@ -72,6 +76,7 @@ export default function SignUpForm() {
       );
     });
   }
+  
   return (
     <>
       <section style={{background: `url(${Background})`, height: "100%", backgroundPosition: "center",
