@@ -136,7 +136,7 @@ const Auth = (props) => {
       });
 
       loadUser();
-      window.location.replace("/");
+      window.location.replace("https://elated-villani-d3b68d.netlify.app/");
     } catch (error) {
       console.log(error);
       dispatch({
